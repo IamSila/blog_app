@@ -1,0 +1,46 @@
+{% load blog_tags %} {% load static %}
+
+<!doctype html>
+<html>
+  <head>
+    <title>{% block title %}{% endblock %}</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <link href="{% static 'css/blog.css' %}" rel="stylesheet" />
+    {% block css %} {% endblock css %}
+  </head>
+  <body>
+    <div id="content">{% block content %} {% endblock %}</div>
+    <div id="sidebar">
+      <h2 class="sidebar-title">ABOUT</h2>
+      <p class="sidebar-bio">Writing about engineering, reverse engineering, security research, and the journey of building things that matter.</p>
+      <div class="stat">
+          <span class="stat-num">{% total_posts %}</span>
+          <span class="stat-label">posts published</span>
+      </div>
+      
+      <h3 class="sidebar-title">latest posts</h3>
+      <div class="latest-posts">
+        {% show_latest_posts 5 %}
+      </div>
+
+
+      
+
+      <div class="commented-posts">
+        <h3 class="sidebar-title">Most Commented Posts</h3>
+        {% get_most_commented_posts as most_commented_posts %}
+        <ul>
+            {% for post in most_commented_posts %}
+                <li>
+                    <a href="{{ post.get_absolute_url }}">{{ post.title }}</a>
+                </li>
+            {% endfor %}
+        </ul>
+      </div>
+      
+    </div>
+  </body>
+</html>
