@@ -89,7 +89,7 @@ DATABASES = {
     #     'HOST': config('DB_HOST'),
     #     'PORT': config('PORT'),
     # }
-    'default': dj_database_url.config(default=config('DATABASE_URL'))
+    'default': dj_database_url.config(default=config('postgresql://postgres:XuQMGSilEtiDXckpQvsDJHorbZYCAnXS@reseau.proxy.rlwy.net:20236/railway'))
 }
 
 
