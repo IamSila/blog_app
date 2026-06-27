@@ -256,3 +256,51 @@ input[type=submit] {
         font-size: 14px;
     }
 }
+
+
+
+
+.sidebar-toggle {
+    display: none;
+    position: fixed;
+    bottom: 1.5rem;
+    right: 1.5rem;
+    z-index: 100;
+    background: var(--lime);
+    color: var(--black);
+    border: none;
+    padding: 10px 16px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 1px;
+    cursor: pointer;
+    border-radius: 2px;
+}
+
+@media (max-width: 768px) {
+    #content {
+        float: none;
+        width: 100%;
+        padding: 0;
+    }
+
+    #sidebar {
+        display: none;
+        float: none;
+        width: 100%;
+        padding-left: 0;
+        border-left: none;
+        border-top: 1px solid var(--faint);
+        margin-top: 2rem;
+        padding-top: 2rem;
+    }
+
+    #sidebar.open {
+        display: block;
+    }
+
+    .sidebar-toggle {
+        display: block;
+    }
+}

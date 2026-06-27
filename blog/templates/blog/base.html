@@ -42,5 +42,24 @@
       </div>
       
     </div>
+
+    <button class="sidebar-toggle" onclick="toggleSidebar()" id="sidebar-btn">
+    ☰ Sidebar
+    </button>
+
+
+
+
+
+    <script>
+        function toggleSidebar() {
+          const sidebar = document.getElementById('sidebar');
+          const btn = document.getElementById('sidebar-btn');
+          sidebar.classList.toggle('open');
+          btn.textContent = sidebar.classList.contains('open') ? '✕ Close' : '☰ Sidebar';
+  }
+</script>
   </body>
+
+      
 </html>
