@@ -12,6 +12,46 @@
     border-bottom: 1px solid var(--faint);
 }
 
+.post-heading .page-top {
+    display: flex;
+    flex-direction: column;
+}
+
+.post-heading .page-top .simple-nav {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.post-heading .page-top .simple-nav .btn {
+    display: inline-flex;
+    letter-spacing: 1.3px;
+    background-color: var(--black);
+    text-transform: uppercase;
+    color: var(--lime);
+    border: 1px solid var(--lime);
+    border-radius: 2px;
+    padding: 4px;
+    font-size: 12px;
+    font-weight: 400;
+    cursor: pointer;
+
+
+}
+
+.post-heading .page-top .simple-nav .btn a {
+    color: var(--lime);
+    text-decoration: none;
+    text-align: center;
+}
+
+.post-heading .page-top .simple-nav .separator {
+    width: 10px;
+    height: 10px;
+    background-color: var(--lime);
+    border-radius: 50%;
+}
+
 .post-heading .post-title {
     color: var(--light);
     font-family: 'Playfair Display', serif;
