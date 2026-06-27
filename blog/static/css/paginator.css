@@ -13,9 +13,8 @@
     display: flex;
     align-items: center;
     justify-content: space-evenly;
-    background-color: var(--faint2);
-    border: 1px solid var(--lime);
-    border-radius: 9px;
+    background-color: var(--near-black);
+    border: none;
 }
 
 .step-links .previous {

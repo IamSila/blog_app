@@ -23,8 +23,14 @@
   </ul>
 </div>
 
+
+
 {% if tag %}
-<h2>Posts tagged with "{{ tag.name }}"</h2>
+<div class="home_btn">
+  <a href="{% url 'blog:post_list' %}">All Posts</a>
+</div>
+
+<h2 class="tags_list_heading">Posts tagged with "{{ tag.name }}"</h2>
 {% endif %} {% for post in posts %}
 
 <div class="post">

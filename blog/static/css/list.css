@@ -43,6 +43,35 @@
   font-size: 12px;
 }
 
+.tags_list_heading {
+  color: var(--light);
+  font-family: 'Playfair Display', serif;
+  font-size: 40px;
+  font-weight: 800;
+  margin-bottom: 30px;
+  line-height: 1.4px;
+  /* margin: 3px; */
+}
+
+.home_btn  {
+  margin: 5px 0;
+}
+
+.home_btn a {
+  letter-spacing: 1.3px;
+  background-color: var(--black);
+  color: var(--lime);
+  text-decoration: none;
+  text-align: center;
+  border: 1px solid var(--lime);
+  border-radius: 2px;
+  padding: 2px;
+  font-size: 12px;
+  font-weight: 400;
+  text-transform: uppercase;
+}
+
+
 
 /* post box */
 .post {

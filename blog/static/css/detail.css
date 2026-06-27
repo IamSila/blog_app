@@ -23,26 +23,19 @@
     gap: 6px;
 }
 
-.post-heading .page-top .simple-nav .btn {
+.post-heading .page-top .simple-nav a {
     display: inline-flex;
     letter-spacing: 1.3px;
     background-color: var(--black);
-    text-transform: uppercase;
-    color: var(--lime);
-    border: 1px solid var(--lime);
-    border-radius: 2px;
-    padding: 4px;
-    font-size: 12px;
-    font-weight: 400;
-    cursor: pointer;
-
-
-}
-
-.post-heading .page-top .simple-nav .btn a {
     color: var(--lime);
     text-decoration: none;
     text-align: center;
+    border: 1px solid var(--lime);
+    border-radius: 2px;
+    padding: 2px;
+    font-size: 12px;
+    font-weight: 400;
+    text-transform: uppercase;
 }
 
 .post-heading .page-top .simple-nav .separator {

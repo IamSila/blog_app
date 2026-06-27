@@ -11,12 +11,12 @@
 
         <div class="page-top">
             <div class="simple-nav">
-                <button class="btn" type="button"><a href="">home</a></button>
+                <a href="{%url 'blog:post_list' %}">home</a>
                 <div class="separator"></div>
                 <div class="separator"></div>
                 <div class="separator"></div>
                 {% for tag in post.tags.all %}
-                    <button class="btn">{{tag}}</button>
+                    <a href="{% url 'blog:post_list_by_tag' tag.slug %}">{{tag}}</a>
                 {% endfor %}
             </div>
             <div class="tags"></div>
