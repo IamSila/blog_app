@@ -1,10 +1,16 @@
 {% extends "blog/base.html" %}
 {% load static %}
 {% load blog_tags %}
-{% block title %} My Blog {% endblock %} {% block css %}
+{% block title %} My Blog {% endblock %} 
+
+{% block css %}
+<link rel="stylesheet" href="{% static 'css/paginator.css' %} ">
 
 <link rel="stylesheet" href="{% static 'css/list.css' %}" />
-{% endblock css %} {% block content %}
+{% endblock css %}
+
+
+{% block content %}
 
 <div class="list-heading">
   <h2>My<span>.</span>Blog</h2>
@@ -34,4 +40,9 @@
   <div class="post-excerpt">{{ post.body|markdown|truncatewords_html:30 }}</div>
   <a class="read-more" href="{{post.get_absolute_url}}"> Read more → </a>
 </div>
-{% endfor %} {% include 'pagination.html' with page=page_obj %} {% endblock %}
+{% endfor %}
+
+
+{% include 'pagination.html' with page=posts %}
+
+{% endblock content %}
