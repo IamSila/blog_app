@@ -9,3 +9,4 @@ markdown
 psycopg
 gunicorn
 dj-database-url
+whitenoise
