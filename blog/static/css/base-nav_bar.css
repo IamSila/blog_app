@@ -374,8 +374,8 @@ body {
 }
 
 .tags-list li a.active {
-    color: var(--black);
-    background: var(--lime);
+    color: var(--lime);
+    background: var(--near-black);
     border-color: var(--lime);
 }
 

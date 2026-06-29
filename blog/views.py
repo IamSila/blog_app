@@ -42,6 +42,7 @@ def post_list(request, tag_slug=None):
 
 
 def post_detail(request, year, month, day, post):
+    tags = Tag.objects.all()
     post = get_object_or_404(
         Post,
         status=Post.Status.PUBLISHED,
@@ -64,7 +65,7 @@ def post_detail(request, year, month, day, post):
     return render(
         request,
         "blog/post/detail.html",
-        {"post": post, "comments": comments, "form": form, "similar_posts":similar_posts, "total_similar_posts":total_similar_posts},
+        {"post": post, "comments": comments, "form": form, "similar_posts":similar_posts, "total_similar_posts":total_similar_posts, "tags":tags},
     )
 
 
