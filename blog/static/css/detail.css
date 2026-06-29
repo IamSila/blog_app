@@ -8,6 +8,13 @@
     --faint2: #242424;
 }
 
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+/* ── POST HEADING ── */
 .post-heading {
     border-bottom: 1px solid var(--faint);
 }
@@ -22,6 +29,7 @@
     display: flex;
     align-items: center;
     gap: 6px;
+    flex-wrap: wrap;
 }
 
 .post-heading .page-top .simple-nav a {
@@ -33,7 +41,7 @@
     text-align: center;
     border: 1px solid var(--lime);
     border-radius: 2px;
-    padding: 2px;
+    padding: 2px 6px;
     font-size: 12px;
     font-weight: 400;
     text-transform: uppercase;
@@ -44,6 +52,7 @@
     height: 10px;
     background-color: var(--lime);
     border-radius: 50%;
+    flex-shrink: 0;
 }
 
 .post-heading .post-title {
@@ -68,9 +77,6 @@
 .post-heading::after {
     content: '';
     display: block;
-    /* position: absolute;
-    bottom: -1px;
-    left: 0; */
     height: 2px;
     width: 20%;
     background: var(--lime);
@@ -85,6 +91,7 @@
     color: var(--mid);
     letter-spacing: 0.5px;
 }
+
 .post-heading .post-meta .post-meta-item .label {
     font-size: 10px;
     letter-spacing: 2px;
@@ -103,11 +110,14 @@
     background: var(--faint);
 }
 
+/* ── POST BODY ── */
 .post-body {
     background-color: var(--faint2);
     color: var(--light);
     border-radius: 2px;
-    padding: 0px 10px;
+    padding: 0 10px;
+    max-width: 100%;
+    overflow-x: hidden;
 }
 
 .post-body h1 {
@@ -115,7 +125,6 @@
     font-size: 30px;
     color: var(--light);
     max-width: 100%;
-    box-sizing: border-box;
 }
 
 .post-body pre {
@@ -126,6 +135,7 @@
     white-space: pre-wrap;
     word-wrap: break-word;
     overflow-x: auto;
+    max-width: 100%;
 }
 
 .post-body span {
@@ -140,10 +150,9 @@
     color: var(--lime);
     font-style: normal;
     text-decoration: underline;
-    /* font-size: 12px; */
 }
 
-/* share section */
+/* ── SHARE STRIP ── */
 .share-strip {
     display: flex;
     flex-wrap: wrap;
@@ -186,18 +195,18 @@
 
 .share-btn:hover {
     color: var(--lime);
-    border-color: var(--lime)
+    border-color: var(--lime);
 }
 
 .share-btn svg {
     width: 12px;
     height: 12px;
-    fill: currentColor
+    fill: currentColor;
 }
 
-/* ─── SIMILAR POSTS ──────────────────────────────── */
+/* ── SIMILAR POSTS ── */
 .similar-posts {
-    margin-bottom: 3rem
+    margin-bottom: 3rem;
 }
 
 .similar-posts-header {
@@ -220,12 +229,13 @@
 .section-count {
     font-family: 'JetBrains Mono', monospace;
     font-size: 11px;
-    color: var(--faint);
+    color: var(--mid);
 }
 
-.similar-posts-empty {
+.similar-posts-empty,
+.zero-similar-posts {
     font-size: 13px;
-    color: var(--faint);
+    color: var(--mid);
     font-style: italic;
     padding: 1rem 0;
 }
@@ -242,7 +252,7 @@
 }
 
 .similar-post-item:hover .sim-title a {
-    color: var(--lime)
+    color: var(--lime);
 }
 
 .sim-num {
@@ -256,17 +266,18 @@
     display: flex;
     gap: 15px;
     align-items: center;
+    flex-wrap: wrap;
 }
-.sim-title a{
+
+.sim-title a {
     font-family: 'Playfair Display', serif;
     font-size: 16px;
     font-weight: 700;
     color: var(--mid);
     line-height: 1.3;
     transition: color 0.15s;
+    text-decoration: none;
 }
-
-
 
 .sim-meta {
     font-size: 11px;
@@ -274,18 +285,9 @@
     margin-top: 3px;
 }
 
-.zero-similar-posts {
-    font-size: 13px;
-    font-style: italic;
-    padding: 1rem 0;
-    color: var(--mid);
-}
-
-
-
-/* ─── COMMENTS ───────────────────────────────────── */
+/* ── COMMENTS ── */
 .section {
-    margin-bottom: 3rem
+    margin-bottom: 3rem;
 }
 
 .section-header {
@@ -295,6 +297,7 @@
     margin-bottom: 1.5rem;
     padding-bottom: 0.75rem;
     border-bottom: 1px solid var(--faint);
+    flex-wrap: wrap;
 }
 
 .section-title {
@@ -303,12 +306,6 @@
     letter-spacing: 3px;
     text-transform: uppercase;
     color: var(--lime);
-}
-
-.section-count {
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 11px;
-    color: var(--mid);
 }
 
 .comments-list {
@@ -325,6 +322,12 @@
 .comment {
     border-left: 3px solid var(--lime);
     border-radius: 3px;
+    padding: 0.75rem 0.75rem 0.75rem 0;
+    margin-bottom: 1rem;
+}
+
+.comment:nth-child(even) {
+    background-color: var(--black);
 }
 
 .comment-header {
@@ -332,6 +335,7 @@
     align-items: center;
     gap: 10px;
     margin-bottom: 0.5rem;
+    flex-wrap: wrap;
 }
 
 .comment-avatar {
@@ -348,16 +352,7 @@
     flex-shrink: 0;
 }
 
-.comment .info {
-    font-size: 13px;
-    font-weight: 500;
-    color: var(--mid);
-    font-style: italic;
-    padding: 1px;
-    margin: 3px;
-    margin-left: 10px;
-}
-
+.comment .info,
 .comment:nth-child(even) .info {
     font-size: 13px;
     font-weight: 500;
@@ -380,8 +375,6 @@
     margin-left: auto;
 }
 
-
-
 .comment-body {
     font-size: 14px;
     line-height: 1.75;
@@ -389,12 +382,156 @@
     padding-left: 38px;
 }
 
+/* ── RESPONSIVE ── */
 
+/* Laptop */
+@media (max-width: 1024px) {
+    .post-heading .post-title {
+        font-size: 26px;
+    }
 
-
-
-.comment:nth-child(even) {
-    background-color: var(--black);
+    .post-body h1 {
+        font-size: 26px;
+    }
 }
 
+/* Tablet */
+@media (max-width: 768px) {
+    .post-heading .post-title {
+        font-size: 22px;
+    }
 
+    .post-body h1 {
+        font-size: 22px;
+    }
+
+    .post-body {
+        padding: 0 8px;
+    }
+
+    .post-heading::after {
+        width: 35%;
+    }
+
+    .share-strip {
+        justify-content: flex-start;
+        gap: 0.75rem;
+    }
+
+    .comment-date {
+        margin-left: 0;
+    }
+
+    .comment-body {
+        padding-left: 28px;
+    }
+
+    .sim-title a {
+        font-size: 15px;
+    }
+}
+
+/* Mobile */
+@media (max-width: 480px) {
+    .post-heading .post-title {
+        font-size: 19px;
+        line-height: 1.4;
+    }
+
+    .post-heading .post-meta {
+        gap: 10px;
+        margin-bottom: 20px;
+    }
+
+    .post-heading .post-meta .post-meta-item {
+        font-size: 11px;
+    }
+
+    .post-heading::after {
+        width: 50%;
+    }
+
+    .post-body h1 {
+        font-size: 19px;
+    }
+
+    .post-body pre {
+        font-size: 12px;
+        padding: 8px;
+    }
+
+    .share-strip {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.6rem;
+        padding: 1rem 0;
+    }
+
+    .share-btn {
+        padding: 5px 12px;
+        font-size: 10px;
+    }
+
+    .share-label {
+        margin-right: 0;
+    }
+
+    .comment-header {
+        flex-wrap: wrap;
+        gap: 6px;
+    }
+
+    .comment-date {
+        width: 100%;
+        margin-left: 38px;
+        margin-top: 2px;
+    }
+
+    .comment-body {
+        padding-left: 0;
+        font-size: 13px;
+    }
+
+    .sim-title a {
+        font-size: 14px;
+    }
+
+    .similar-posts-header,
+    .section-header {
+        flex-wrap: wrap;
+        gap: 8px;
+    }
+}
+
+/* Small phones */
+@media (max-width: 360px) {
+    .post-heading .post-title {
+        font-size: 17px;
+    }
+
+    .post-body h1 {
+        font-size: 17px;
+    }
+
+    .post-body pre {
+        font-size: 11px;
+    }
+
+    .share-btn {
+        font-size: 9px;
+        padding: 4px 10px;
+    }
+
+    .comment .info,
+    .comment:nth-child(even) .info {
+        font-size: 12px;
+    }
+
+    .comment-body {
+        font-size: 12px;
+    }
+
+    .sim-title a {
+        font-size: 13px;
+    }
+}
