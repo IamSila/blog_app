@@ -110,32 +110,110 @@
     background: var(--faint);
 }
 
-/* ── POST BODY ── */
 .post-body {
     background-color: var(--faint2);
     color: var(--light);
     border-radius: 2px;
-    padding: 0 10px;
-    max-width: 100%;
+    padding: 2.5rem;
+    max-width: 720px;
+    margin: 0 auto;
     overflow-x: hidden;
+    font-family: 'Inter', sans-serif;
+    font-size: 17px;
+    line-height: 1.75;
+}
+
+.post-body *+* {
+    margin-top: 1.4rem;
 }
 
 .post-body h1 {
     font-family: 'Playfair Display', serif;
-    font-size: 30px;
+    font-size: 34px;
+    line-height: 1.25;
+    font-weight: 700;
     color: var(--light);
     max-width: 100%;
+    margin-top: 0;
+    margin-bottom: 0.75rem;
+}
+
+.post-body h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 26px;
+    line-height: 1.3;
+    font-weight: 700;
+    color: var(--light);
+    max-width: 100%;
+    margin-top: 2.2rem;
+    margin-bottom: 0.5rem;
+}
+
+.post-body h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 21px;
+    line-height: 1.35;
+    font-weight: 700;
+    color: var(--light);
+    max-width: 100%;
+    margin-top: 1.8rem;
+    margin-bottom: 0.5rem;
+}
+
+.post-body p {
+    margin-top: 1.2rem;
+    max-width: 100%;
+}
+
+.post-body ul,
+.post-body ol {
+    padding-left: 1.5rem;
+    margin-top: 1.2rem;
+}
+
+.post-body li {
+    margin-top: 0.5rem;
+    line-height: 1.7;
+}
+
+.post-body li+li {
+    margin-top: 0.5rem;
+}
+
+.post-body blockquote {
+    border-left: 2px solid var(--lime);
+    padding: 0.25rem 0 0.25rem 1.2rem;
+    margin-top: 1.5rem;
+    color: var(--mid);
+    font-style: italic;
 }
 
 .post-body pre {
     background-color: var(--black);
-    padding: 10px;
+    padding: 16px 18px;
     border-left: 2px solid var(--lime);
     border-radius: 2px;
     white-space: pre-wrap;
     word-wrap: break-word;
     overflow-x: auto;
     max-width: 100%;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 14px;
+    line-height: 1.6;
+    margin-top: 1.5rem;
+}
+
+.post-body code {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.85em;
+}
+
+.post-body p code,
+.post-body li code {
+    color: var(--lime);
+    background: var(--faint);
+    padding: 2px 6px;
+    border-radius: 3px;
 }
 
 .post-body span {
@@ -150,7 +228,55 @@
     color: var(--lime);
     font-style: normal;
     text-decoration: underline;
+    text-decoration-color: rgba(186, 236, 23, 0.4);
+    text-underline-offset: 2px;
+    transition: text-decoration-color 0.15s;
 }
+
+.post-body a:hover {
+    text-decoration-color: var(--lime);
+}
+
+.post-body img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 2px;
+    margin-top: 1.8rem;
+    display: block;
+}
+
+.post-body hr {
+    border: none;
+    border-top: 1px solid var(--faint);
+    margin-top: 2.2rem;
+}
+
+@media (max-width: 600px) {
+    .post-body {
+        padding: 1.5rem;
+        font-size: 16px;
+        line-height: 1.7;
+        border-radius: 0;
+    }
+
+    .post-body h1 {
+        font-size: 26px;
+    }
+
+    .post-body h2 {
+        font-size: 21px;
+    }
+
+    .post-body h3 {
+        font-size: 18px;
+    }
+
+    .post-body pre {
+        font-size: 13px;
+        padding: 12px 14px;
+    }
+}
+
 
 /* ── SHARE STRIP ── */
 .share-strip {
@@ -450,6 +576,8 @@
     .post-heading::after {
         width: 50%;
     }
+
+
 
     .post-body h1 {
         font-size: 19px;
