@@ -10,6 +10,12 @@
     --faint2: #242424;
 }
 
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
 body {
     font-family: 'Inter', sans-serif;
     background-color: var(--near-black);
@@ -43,12 +49,6 @@ h2 {
     padding-left: 2rem;
     height: 100%;
     border-left: 1px solid var(--faint);
-}
-
-/* clearfix */
-#content,
-#sidebar {
-    box-sizing: border-box;
 }
 
 body::after {
@@ -98,7 +98,7 @@ body::after {
     letter-spacing: 1px;
 }
 
-/* ── LATEST & COMMENTED POSTS ── */
+/* ── SIDEBAR POSTS ── */
 #sidebar .commented-posts {
     margin-top: 40px;
 }
@@ -185,7 +185,6 @@ textarea {
     padding: 6px 10px;
     font-size: 12px;
     width: 100%;
-    box-sizing: border-box;
     background: var(--faint);
     color: var(--light);
 }
@@ -199,6 +198,13 @@ input[type=submit] {
     text-transform: uppercase;
     cursor: pointer;
     width: auto;
+    float: none;
+    clear: both;
+    transition: opacity 0.2s;
+}
+
+input[type=submit]:hover {
+    opacity: 0.88;
 }
 
 .errorlist {
@@ -208,64 +214,7 @@ input[type=submit] {
     padding-left: 10px;
 }
 
-/* ── RESPONSIVE ── */
-@media (max-width: 1024px) {
-    #content {
-        width: 55%;
-    }
-
-    #sidebar {
-        width: 40%;
-    }
-}
-
-@media (max-width: 768px) {
-    #content {
-        float: none;
-        width: 100%;
-        padding: 0;
-    }
-
-    #sidebar {
-        float: none;
-        width: 100%;
-        padding-left: 0;
-        border-left: none;
-        border-top: 1px solid var(--faint);
-        margin-top: 2rem;
-        padding-top: 2rem;
-    }
-
-    body {
-        padding: 0 1rem;
-    }
-
-    #sidebar .stat .stat-num {
-        font-size: 36px;
-    }
-}
-
-@media (max-width: 480px) {
-    
-
-    h2 {
-        font-size: 18px;
-    }
-
-    input[type=submit] {
-        width: 100%;
-        text-align: center;
-    }
-
-    .pagination {
-        text-align: center;
-        font-size: 14px;
-    }
-}
-
-
-
-
+/* ── SIDEBAR TOGGLE (mobile) ── */
 .sidebar-toggle {
     display: none;
     position: fixed;
@@ -276,7 +225,7 @@ input[type=submit] {
     color: var(--black);
     border: none;
     padding: 10px 16px;
-    font-family: 'JetBrains Mono', monospace;
+    font-family: 'Inter', sans-serif;
     font-size: 12px;
     font-weight: 500;
     letter-spacing: 1px;
@@ -284,7 +233,29 @@ input[type=submit] {
     border-radius: 2px;
 }
 
-@media (max-width: 768px)  {
+/* ── RESPONSIVE ── */
+
+/* Laptop */
+@media (max-width: 1024px) {
+    #content {
+        width: 55%;
+    }
+
+    #sidebar {
+        width: 40%;
+    }
+
+    #sidebar .stat .stat-num {
+        font-size: 38px;
+    }
+}
+
+/* Tablet */
+@media (max-width: 768px) {
+    body {
+        padding: 0 1.2rem;
+    }
+
     #content {
         float: none;
         width: 100%;
@@ -309,4 +280,77 @@ input[type=submit] {
     .sidebar-toggle {
         display: block;
     }
+
+    #sidebar .stat .stat-num {
+        font-size: 36px;
+    }
+
+    h2 {
+        font-size: 20px;
+    }
 }
+
+/* Mobile */
+@media (max-width: 480px) {
+    body {
+        padding: 0 1rem;
+    }
+
+    h2 {
+        font-size: 18px;
+    }
+
+    #sidebar .stat {
+        flex-direction: column;
+        gap: 2px;
+    }
+
+    #sidebar .stat .stat-num {
+        font-size: 32px;
+    }
+
+    #sidebar .sidebar-title {
+        letter-spacing: 2px;
+    }
+
+    input[type=submit] {
+        width: 100%;
+        text-align: center;
+    }
+
+    .pagination {
+        text-align: center;
+        font-size: 14px;
+    }
+
+    .sidebar-toggle {
+        bottom: 1rem;
+        right: 1rem;
+        padding: 9px 14px;
+    }
+}
+
+/* Small phones */
+@media (max-width: 360px) {
+    body {
+        padding: 0 0.75rem;
+    }
+
+    h2 {
+        font-size: 16px;
+    }
+
+    #sidebar .stat .stat-num {
+        font-size: 28px;
+    }
+
+    .sidebar-bio {
+        font-size: 12px;
+    }
+
+    #sidebar .latest-posts ul li a,
+    #sidebar .commented-posts ul li a {
+        font-size: 12px;
+    }
+}
+
