@@ -99,6 +99,10 @@ body::after {
 }
 
 /* ── LATEST & COMMENTED POSTS ── */
+#sidebar .commented-posts {
+    margin-top: 40px;
+}
+
 #sidebar .latest-posts ul,
 #sidebar .commented-posts ul {
     padding: 0;
