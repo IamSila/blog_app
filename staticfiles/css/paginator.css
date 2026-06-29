@@ -1,0 +1,49 @@
+:root {
+    --black: #111111;
+    --near-black: #1b1b1b;
+    --lime: #baec17;
+    --light: #e4e4e4;
+    --mid: #888;
+    --faint: #2c2c2c;
+    --faint2: #242424;
+}
+
+
+.step-links {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    background-color: var(--near-black);
+    border: none;
+}
+
+.step-links .previous {
+    font-family: 'Playfair Display', serif;
+    background-color: var(--faint2);
+    color: var(--lime);
+    padding: 1px 5px;
+    border-radius: 9px;
+    margin: 2px;
+}
+
+.step-links .current {
+    background-color: var(--faint2);
+    color: var(--light);
+    padding: 1px 5px;
+    border-radius: 9px;
+    margin: 2px;
+    font-size: 14px;
+}
+
+.step-links .next {
+    font-family: 'Playfair Display', serif;
+    background-color: var(--faint2);
+    color: var(--lime);
+    padding: 1px 5px;
+    border-radius: 9px;
+    margin: 2px;
+}
+
+.step-links .current span {
+    color: var(--lime);
+}

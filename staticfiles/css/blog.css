@@ -1,21 +1,29 @@
-@import url('https://googleapis.com');
-
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Inter:wght@400;500&display=swap');
 
 :root {
-  --black: #111111;
-  --near-black: #1b1b1b;
-  --lime: #baec17;
-  --light: #e4e4e4;
-  --mid: #888;
-  --faint: #2c2c2c;
-  --faint2: #242424;
+    --black: #111111;
+    --near-black: #1b1b1b;
+    --lime: #baec17;
+    --light: #e4e4e4;
+    --mid: #888;
+    --faint: #2c2c2c;
+    --faint2: #242424;
 }
 
-body{
-  font-family:'Inter',sans-serif;
-  background-color: var(--near-black);
-  line-height:1.7;
-  min-height:100vh;
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: var(--near-black);
+    color: var(--light);
+    line-height: 1.7;
+    min-height: 100vh;
+    margin: 0;
+    padding: 0 1.5rem;
 }
 
 a {
@@ -23,17 +31,16 @@ a {
     text-decoration: none;
 }
 
-
 h2 {
     font-weight: normal;
     margin: 30px 0 0;
 }
 
+/* ── LAYOUT ── */
 #content {
     float: left;
     width: 60%;
     padding: 0 0 0 30px;
-    /* border-right: 1px solid var(--mid); */
 }
 
 #sidebar {
@@ -44,6 +51,13 @@ h2 {
     border-left: 1px solid var(--faint);
 }
 
+body::after {
+    content: '';
+    display: table;
+    clear: both;
+}
+
+/* ── SIDEBAR ── */
 #sidebar .sidebar-title {
     font-size: 10px;
     font-weight: 500;
@@ -84,61 +98,23 @@ h2 {
     letter-spacing: 1px;
 }
 
-#sidebar .stat .stat-num {
-    font-family: 'Playfair Display', serif;
-    font-size: 44px;
-    font-weight: 700;
-    color: var(--lime);
-    line-height: 1;
+/* ── SIDEBAR POSTS ── */
+#sidebar .commented-posts {
+    margin-top: 40px;
 }
 
-
-#sidebar .latest-posts li{
-    list-style: none;
+#sidebar .latest-posts ul,
+#sidebar .commented-posts ul {
     padding: 0;
     margin: 0;
 }
 
-#sidebar .latest-posts ul li a {
-    display: flex;
-    align-items: flex-start;
-    gap: 8px;
-    font-size: 13px;
-    color: var(--mid);
-    padding: 8px 0;
-    border-bottom: 1px solid var(--faint);
-    text-decoration: none;
-    transition: color 0.15s;
-    line-height: 1.4;
-}
-
-#sidebar .latest-posts li a:hover {
-    color: var(--lime);
-}
-
-#sidebar .latest-posts ul li a::before {
-    content: '→';
-    color: var(--faint);
-    font-size: 11px;
-    margin-top: 1px;
-    flex-shrink: 0;
-    transition: color 0.15s;
-}
-
-
-#sidebar .latest-posts ul li a:hover::before {
-    color: var(--lime);
-}
-
-
-
-
+#sidebar .latest-posts li,
 #sidebar .commented-posts li {
     list-style: none;
-    padding: 0;
-    margin: 0;
 }
 
+#sidebar .latest-posts ul li a,
 #sidebar .commented-posts ul li a {
     display: flex;
     align-items: flex-start;
@@ -152,10 +128,12 @@ h2 {
     line-height: 1.4;
 }
 
-#sidebar .commented-posts li a:hover {
+#sidebar .latest-posts ul li a:hover,
+#sidebar .commented-posts ul li a:hover {
     color: var(--lime);
 }
 
+#sidebar .latest-posts ul li a::before,
 #sidebar .commented-posts ul li a::before {
     content: '→';
     color: var(--faint);
@@ -165,12 +143,12 @@ h2 {
     transition: color 0.15s;
 }
 
-
+#sidebar .latest-posts ul li a:hover::before,
 #sidebar .commented-posts ul li a:hover::before {
     color: var(--lime);
 }
 
-
+/* ── MISC ── */
 p.date {
     color: #ccc;
     font-family: georgia, serif;
@@ -183,17 +161,18 @@ p.date {
     margin-right: 10px;
 }
 
-/* pagination */
+/* ── PAGINATION ── */
 .pagination {
     margin: 40px 0;
     font-weight: bold;
+    clear: both;
 }
 
-/* forms */
+/* ── FORMS ── */
 label {
     float: left;
     clear: both;
-    color: #333;
+    color: var(--mid);
     margin-bottom: 4px;
 }
 
@@ -202,19 +181,30 @@ textarea {
     clear: both;
     float: left;
     margin: 0 0 10px;
-    /* background: #ededed; */
     border: 0;
     padding: 6px 10px;
     font-size: 12px;
+    width: 100%;
+    background: var(--faint);
+    color: var(--light);
 }
 
 input[type=submit] {
     font-weight: bold;
-    background: #00abff;
-    color: #fff;
+    background: var(--lime);
+    color: var(--black);
     padding: 10px 20px;
     font-size: 14px;
     text-transform: uppercase;
+    cursor: pointer;
+    width: auto;
+    float: none;
+    clear: both;
+    transition: opacity 0.2s;
+}
+
+input[type=submit]:hover {
+    opacity: 0.88;
 }
 
 .errorlist {
@@ -224,4 +214,143 @@ input[type=submit] {
     padding-left: 10px;
 }
 
+/* ── SIDEBAR TOGGLE (mobile) ── */
+.sidebar-toggle {
+    display: none;
+    position: fixed;
+    bottom: 1.5rem;
+    right: 1.5rem;
+    z-index: 100;
+    background: var(--lime);
+    color: var(--black);
+    border: none;
+    padding: 10px 16px;
+    font-family: 'Inter', sans-serif;
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 1px;
+    cursor: pointer;
+    border-radius: 2px;
+}
+
+/* ── RESPONSIVE ── */
+
+/* Laptop */
+@media (max-width: 1024px) {
+    #content {
+        width: 55%;
+    }
+
+    #sidebar {
+        width: 40%;
+    }
+
+    #sidebar .stat .stat-num {
+        font-size: 38px;
+    }
+}
+
+/* Tablet */
+@media (max-width: 768px) {
+    body {
+        padding: 0 1.2rem;
+    }
+
+    #content {
+        float: none;
+        width: 100%;
+        padding: 0;
+    }
+
+    #sidebar {
+        display: none;
+        float: none;
+        width: 100%;
+        padding-left: 0;
+        border-left: none;
+        border-top: 1px solid var(--faint);
+        margin-top: 2rem;
+        padding-top: 2rem;
+    }
+
+    #sidebar.open {
+        display: block;
+    }
+
+    .sidebar-toggle {
+        display: block;
+    }
+
+    #sidebar .stat .stat-num {
+        font-size: 36px;
+    }
+
+    h2 {
+        font-size: 20px;
+    }
+}
+
+/* Mobile */
+@media (max-width: 480px) {
+    body {
+        padding: 0 1rem;
+    }
+
+    h2 {
+        font-size: 18px;
+    }
+
+    #sidebar .stat {
+        flex-direction: column;
+        gap: 2px;
+    }
+
+    #sidebar .stat .stat-num {
+        font-size: 32px;
+    }
+
+    #sidebar .sidebar-title {
+        letter-spacing: 2px;
+    }
+
+    input[type=submit] {
+        width: 100%;
+        text-align: center;
+    }
+
+    .pagination {
+        text-align: center;
+        font-size: 14px;
+    }
+
+    .sidebar-toggle {
+        bottom: 1rem;
+        right: 1rem;
+        padding: 9px 14px;
+    }
+}
+
+/* Small phones */
+@media (max-width: 360px) {
+    body {
+        padding: 0 0.75rem;
+    }
+
+    h2 {
+        font-size: 16px;
+    }
+
+    #sidebar .stat .stat-num {
+        font-size: 28px;
+    }
+
+    .sidebar-bio {
+        font-size: 12px;
+    }
+
+    #sidebar .latest-posts ul li a,
+    #sidebar .commented-posts ul li a {
+        font-size: 12px;
+    }
+}
 

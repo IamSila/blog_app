@@ -19,9 +19,11 @@ class PostListView(ListView):
     template_name = "blog/post/list.html"
 
 
+
 def post_list(request, tag_slug=None):
 
     posts_list = Post.published.all()
+    tags = Tag.objects.all()
     tag = None
     if tag_slug:
         tag = get_object_or_404(Tag,slug=tag_slug)
@@ -36,7 +38,7 @@ def post_list(request, tag_slug=None):
         posts = paginator.page(1)
     except EmptyPage:
         posts = paginator.page(paginator.num_pages)
-    return render(request, "blog/post/list.html", {"posts": posts, "tag":tag})
+    return render(request, "blog/post/list.html", {"posts": posts, "tag":tag, "tags":tags},)
 
 
 def post_detail(request, year, month, day, post):
