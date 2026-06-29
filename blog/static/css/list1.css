@@ -280,7 +280,7 @@
 
      .post {
          padding: 14px;
-         margin-bottom: 14px;
+         /* margin-bottom: 14px; */
      }
 
      .post .post-heading a {
