@@ -20,7 +20,7 @@
      display: flex;
      justify-content: space-between;
      align-items: center;
-     border-bottom: 2px solid var(--faint);
+     /* border-bottom: 2px solid var(--faint); */
      flex-wrap: wrap;
      gap: 12px;
      padding-bottom: 8px;
@@ -87,10 +87,18 @@
      color: var(--black);
  }
 
+.posts-container {
+    background-color: var(--black);
+    padding: 3px;
+    /* border: 1px solid red; */
+    border-radius: 4px;
+    margin-bottom: 20px;
+}
+
  .post {
      padding: 20px;
      background-color: var(--faint2);
-     margin-bottom: 20px;
+     /* margin-bottom: 20px; */
      border: 1px solid var(--faint);
      border-radius: 4px;
      transition: border-color 0.2s;
