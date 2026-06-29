@@ -37,6 +37,7 @@ body {
     border-bottom: 1px solid var(--faint);
     transition: box-shadow 0.3s;
     width: 100%;
+    margin-bottom: 20px;
 }
 
 #navbar.scrolled {
@@ -361,7 +362,7 @@ body {
     text-transform: uppercase;
     color: var(--mid);
     text-decoration: none;
-    padding: 1px 9px;
+    padding: 1px 3px;
     border: 1px solid var(--faint);
     border-radius: 2px;
     white-space: nowrap;
