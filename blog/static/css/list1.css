@@ -89,6 +89,7 @@
 
  .post {
      padding: 20px;
+     background-color: var(--faint2);
      margin-bottom: 20px;
      border: 1px solid var(--faint);
      border-radius: 4px;
@@ -117,6 +118,7 @@
      gap: 6px;
      flex-wrap: wrap;
      margin: 8px 0;
+     
  }
 
  .tags a {
@@ -128,7 +130,8 @@
      border: 1px solid var(--faint);
      border-radius: 2px;
      color: var(--mid);
-     background: transparent;
+     /* background: transparent; */
+    background-color: var(--near-black);
      transition: border-color 0.15s, color 0.15s;
      text-decoration: none;
      white-space: nowrap;
