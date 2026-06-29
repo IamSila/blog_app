@@ -23,7 +23,7 @@ class PostListView(ListView):
 def post_list(request, tag_slug=None):
 
     posts_list = Post.published.all()
-    tags = Tag.objects.all()
+    tags = Tag.objects.distinct().order_by('name')
     tag = None
     if tag_slug:
         tag = get_object_or_404(Tag,slug=tag_slug)
@@ -42,7 +42,7 @@ def post_list(request, tag_slug=None):
 
 
 def post_detail(request, year, month, day, post):
-    tags = Tag.objects.all()
+    tags = Tag.objects.distinct().order_by('name')
     post = get_object_or_404(
         Post,
         status=Post.Status.PUBLISHED,
