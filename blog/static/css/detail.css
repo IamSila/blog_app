@@ -121,6 +121,7 @@
     padding: 10px;
     border-left: 2px solid var(--lime);
     border-radius: 2px;
+    width: 100%;
 }
 
 .post-body span {
