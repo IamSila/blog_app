@@ -146,12 +146,14 @@
 /* share section */
 .share-strip {
     display: flex;
+    justify-content: space-evenly;
     align-items: center;
     gap: 1rem;
     padding: 1.25rem 0;
     border-top: 1px solid var(--faint);
     border-bottom: 1px solid var(--faint);
     margin-bottom: 3rem;
+    max-width: 100%;
 }
 
 .share-label {
