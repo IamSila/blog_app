@@ -246,6 +246,10 @@ input[type=submit] {
 }
 
 @media (max-width: 480px) {
+    #content {
+        width: 100%;
+    }
+    
     h2 {
         font-size: 18px;
     }
