@@ -2,7 +2,7 @@ function toggleSidebar() {
     const sidebar = document.getElementById('sidebar');
     const btn = document.getElementById('sidebar-btn');
     sidebar.classList.toggle('open');
-    btn.textContent = sidebar.classList.contains('open') ? '✕ Close' : '☰ Sidebar';
+    btn.textContent = sidebar.classList.contains('open') ? '✕ Close' : '☰ Metrics';
 }
 
 
