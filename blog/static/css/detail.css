@@ -115,13 +115,13 @@
     color: var(--light);
     border-radius: 2px;
     padding: 2.5rem;
-    max-width: 720px;
+    max-width: 100%;
     margin: 0 auto;
     overflow-x: hidden;
     font-family: 'Inter', sans-serif;
     font-size: 17px;
     line-height: 1.75;
-    width: 100%;
+    
 }
 
 .post-body *+* {
