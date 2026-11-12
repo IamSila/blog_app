@@ -14,7 +14,7 @@ from django.contrib.postgres.search import SearchVector, SearchQuery, SearchRank
 
 class PostListView(ListView):
     queryset = Post.published.all()
-    paginate_by = 3
+    paginate_by = 10
     context_object_name = "posts"
     template_name = "blog/post/list.html"
 
@@ -29,7 +29,7 @@ def post_list(request, tag_slug=None):
         tag = get_object_or_404(Tag,slug=tag_slug)
         posts_list = posts_list.filter(tags__in=[tag])
     # pagination with 3 posts per page
-    paginator = Paginator(posts_list, 3, orphans=0)
+    paginator = Paginator(posts_list, 10, orphans=0)
     page_number = request.GET.get("page", 1)
     try:
         posts = paginator.page(page_number)
